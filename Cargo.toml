@@ -1,0 +1,26 @@
+[package]
+name = "rightright"
+version = "0.1.0"
+edition = "2021"
+description = "全局剪贴板划词翻译 + 链接跳转，托盘常驻，原生 Win32 界面"
+
+[[bin]]
+name = "rightright"
+path = "src/main.rs"
+
+[dependencies]
+native-windows-gui = "1.0.13"
+ureq = { version = "2", default-features = false, features = ["native-tls", "gzip"] }
+native-tls = "0.2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+regex = "1"
+open = "5"
+winapi = { version = "0.3", features = ["winuser", "wingdi", "dwmapi", "libloaderapi", "windef", "minwindef", "basetsd", "uxtheme", "shellapi"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true

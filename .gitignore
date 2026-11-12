@@ -1,0 +1,7 @@
+/target
+/rightright.exe
+__pycache__/
+assets/_v_*.png
+assets/_verify*.py
+assets/icon_preview.png
+_repo_payload.json
